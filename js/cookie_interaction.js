@@ -11,12 +11,12 @@ card.addEventListener('pointerdown', mouseDownFunc)
 window.addEventListener('pointermove', mouseMoveFunc)
 card.addEventListener('mouseenter', () => {
     if (clicked || Date.now() < startTime + 500) return
-    lastClickPos.deg = deg + 10
+    lastClickPos.deg = deg + 5
     card.style.transform = `perspective(2000px) rotateY(${lastClickPos.deg}deg) rotateZ(${zRotation}deg)`
 })
 card.addEventListener('mouseleave', () => {
     if (clicked || Date.now() < startTime + 500) return
-    lastClickPos.deg = deg - 10
+    lastClickPos.deg = deg - 5
     card.style.transform = `perspective(2000px) rotateY(${lastClickPos.deg}deg) rotateZ(${zRotation}deg)`
 })
 // touch / drag end
@@ -33,7 +33,7 @@ function mouseUpFunc() {
 
 function mouseDownFunc(event) {
     clicked = true
-    lastClickPos.x = event.clientX || event.targetTouces[0].pageX
+    lastClickPos.x = event.clientX
     card.classList.add("grabbing")
     document.body.classList.add("grabbing")
 }
@@ -42,7 +42,8 @@ function mouseMoveFunc(event) {
     if (!clicked) {
         return
     }
-    const x = event.clientX || event.targetTouces[0].pageX
+    event.preventDefault()
+    const x = event.clientX
     const width = window.innerWidth
     const ratio = (x - lastClickPos.x) / (width * .5)
     deg = lastClickPos.deg + ratio * 180
