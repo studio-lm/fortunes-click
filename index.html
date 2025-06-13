@@ -3,82 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerätesensor-Test</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      height: 100vh;
-      background: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    #box {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: red;
-      border-radius: 12px;
-      transition: top 0.05s linear, left 0.05s linear;
-    }
-    button {
-      position: relative;
-      z-index: 10;
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-  </style>
+  <title>Cookies</title>
 </head>
 <body>
-
-  <div id="box"></div>
-  <button onclick="requestDeviceOrientationPermission()">Sensorzugriff erlauben</button>
-
-  <script>
-    const box = document.getElementById("box");
-
-    function handleOrientation(event) {
-      const gamma = event.gamma || 0; // -90 (links) bis 90 (rechts)
-      const beta = event.beta || 0;   // -180 (nach hinten) bis 180 (nach vorne)
-
-      // Begrenzung der Werte zur Vermeidung extremer Positionen
-      const clampedGamma = Math.max(-45, Math.min(45, gamma));
-      const clampedBeta = Math.max(-45, Math.min(45, beta));
-
-      const screenWidth = window.innerWidth - 100;
-      const screenHeight = window.innerHeight - 100;
-
-      const x = ((clampedGamma + 45) / 90) * screenWidth;
-      const y = ((clampedBeta + 45) / 90) * screenHeight;
-
-      box.style.left = `${x}px`;
-      box.style.top = `${y}px`;
-    }
-
-    function requestDeviceOrientationPermission() {
-      if (typeof DeviceOrientationEvent !== "undefined" &&
-          typeof DeviceOrientationEvent.requestPermission === "function") {
-        DeviceOrientationEvent.requestPermission()
-          .then(permissionState => {
-            if (permissionState === "granted") {
-              window.addEventListener("deviceorientation", handleOrientation);
-            } else {
-              alert("Zugriff auf Gerätesensoren wurde verweigert.");
-            }
-          })
-          .catch(err => {
-            alert("Fehler beim Anfordern der Berechtigung: " + err);
-          });
-      } else {
-        // Android oder Desktop (keine Anfrage nötig)
-        window.addEventListener("deviceorientation", handleOrientation);
-      }
-    }
-  </script>
-
+<h1>tttest</h1>
 </body>
 </html>
