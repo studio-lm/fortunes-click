@@ -61,6 +61,10 @@ setInterval(function() {
 		currentIndex = 0;
 	}
 }, 1000);
-
-card.style.transform = `perspective(2000px) rotateY(0deg) rotateZ(${zRotation}deg)`
-startTime = Date.now()
+document.addEventListener("DOMContentLoaded", () => {
+    card.style.transform = "perspective(2000px) translateZ(2000px) rotateX(10deg) rotateY(-60deg) rotateZ(5deg)"
+    requestAnimationFrame(() => {
+        card.style.transform = `perspective(2000px) rotateY(0deg) rotateZ(${zRotation}deg)`
+        startTime = Date.now()
+    })
+})

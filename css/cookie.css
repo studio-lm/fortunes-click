@@ -86,7 +86,7 @@ body {
     align-items: center;
     justify-content: center;
     user-select: none;
-
+    -webkit-user-select: none;
     font-family: arial-narrow;
     font-size: 2.5vw;
     
