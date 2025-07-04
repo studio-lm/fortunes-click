@@ -1,11 +1,85 @@
+<!--
+
+Fortune & Cookies
+BURG Halle, SoSe 2025
+
+Students:
+Nora Ahrens
+Lars Hembacher
+Tomma Suki Hinrichsen
+Vincent Jäckel
+Alexander Klette
+Franka Nowak
+Eva Richter
+Pia Röttgers
+Johanna Schmücker
+Šimon Vlach
+
+Seminar by Lukas Marstaller
+
+-->
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cookies</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortune & Cookies — BURG Halle 2025</title>
+  <link href="css/cookie.css" rel="stylesheet">
+  <script src="js/cookie_interaction.js" defer></script>
+  <script src="js/cookie.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
+
 <body>
-<h1>tttest</h1>
+  <div id="cookie-popup">
+    <div class="popup-content" id="popup-step-1">
+      <h2>This website uses Cookies</h2>
+      <p>To provide you with an optimized user experience, this website uses selected cookies. These are intended to
+        improve functionality, adapt to individual preferences, and occasionally enable enhanced interaction beyond
+        digital channels. In certain cases, physical delivery of specific components may occur as part of special user
+        actions or for deeper engagement. These components may include supplementary content in a compact format. The
+        content is not personalized but may contain uplifting or inspiring elements, offered as part of an extended
+        service approach. By using this website, you consent to the use of such elements as well as their occasional
+        delivery.</p>
+      <div class="two-col">
+        <button onclick="acceptCookies()">Accept</button>
+        <button class="red" onclick="declineCookies()">Decline</button>
+      </div>
+    </div>
+    <div class="popup-content hidden" id="popup-step-2">
+      <div id="step-2">
+        <h2>An exiting future lies ahead of you!</h2>
+        <p>You have declined our digital fortune service. May we offer you the real experience? Share your address with
+          us, and we’ll send a homemade cookie straight to your door.</p>
+        <form id="cookie-form" action="https://formspree.io/f/myzjvnjq" method="POST">
+          <div class="two-col">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="text" name="address" placeholder="Address">
+            <input type="text" name="postal" placeholder="Postal code, City">
+          </div>
+          <button type="submit">Send me a Cookie</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="popup-content hidden" id="popup-step-3">
+      <p>Nice, your cookie is almost on the way. Enjoy!</p>
+    </div>
+  </div>
+
+  <div id="container">
+    <div id="card">
+      <div class="front face">
+        😌🧘‍♂️✨⬆️👑
+      </div>
+      <div class="back face">
+        Stay calm. You are on top.
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
