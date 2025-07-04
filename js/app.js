@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //const accepted = localStorage.getItem("cookiesAccepted");
+  const accepted = localStorage.getItem("cookiesAccepted");
   if (accepted === "true") {
     document.getElementById("cookie-popup").style.display = "none";
     document.body.style.overflow = "auto";
