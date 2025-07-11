@@ -85,7 +85,7 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
 
                 const step3Box = document.getElementById("popup-step-3");
                 const confirmText = document.getElementById("cookie-confirm-text");
-                confirmText.textContent = `Nice, your cookie is almost on the way. (${cookieCount}/12 Cookies sent)`;
+                confirmText.textContent = `Nice, your cookie is almost on the way. (${cookieCount}/12 Cookies sent.)`;
 
                 step3Box.classList.remove("hidden");
                 step3Box.classList.add("bounce-in");
