@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-  //const accepted = localStorage.getItem("cookiesAccepted");
-  if (accepted === "true") {
-    document.getElementById("cookie-popup").style.display = "none";
-    document.body.style.overflow = "auto";
-  }
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   const accepted = localStorage.getItem("cookiesAccepted");
+//   if (accepted === "true") {
+//     document.getElementById("cookie-popup").style.display = "none";
+//     document.body.style.overflow = "auto";
+//   }
+// });
 
 
 function acceptCookies() {
