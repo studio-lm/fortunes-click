@@ -104,22 +104,23 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
 
     setTimeout(() => {
       popup.classList.add("hidden");
-
+    
       const step3Box = document.getElementById("popup-step-3");
       const confirmText = document.getElementById("cookie-confirm-text");
       const statsText = document.getElementById("cookie-stats-text");
-
+    
       if (cookieGranted) {
-        confirmText.textContent = `Nice, your cookie is almost on the way! (${successfulCount}/12 Cookies sent)`;
+        confirmText.textContent = `Nice, your cookie is almost on the way!`;
+        statsText.textContent = `(${successfulCount}/12 Cookies sent)`;
       } else {
         confirmText.textContent = `Sorry, all 12 cookies have already been sent.`;
+        statsText.textContent = `People craving IRL cookies so far: ${totalCount}`;
       }
-
-      statsText.textContent = `Total people craving IRL cookies: ${totalCount}`;
-
+    
       step3Box.classList.remove("hidden");
       step3Box.classList.add("bounce-in");
     }, 600);
+
   }).catch((err) => {
     alert("Something went wrong while connecting to the cookie server.");
     console.error(err);
