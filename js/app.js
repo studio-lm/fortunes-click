@@ -47,8 +47,6 @@ async function getAndUpdateCookieCount() {
   };
 }
 
-
-
 function acceptCookies() {
     const popup = document.getElementById("cookie-popup");
     popup.style.backdropFilter = "blur(0px)";
@@ -88,11 +86,9 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
     return;
   }
 
-  // ⬇️ Hier kommt der Supabase-Check
   getAndUpdateCookieCount().then(async (countData) => {
     const { cookieGranted, successfulCount, totalCount } = countData;
 
-    // Wenn Cookie verfügbar → an Formspree senden
     if (cookieGranted) {
       await fetch(form.action, {
         method: "POST",
@@ -119,7 +115,7 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
         confirmText.textContent = `Sorry, all 12 cookies have already been sent.`;
       }
 
-      statsText.textContent = `Total people who wanted a cookie: ${totalCount}`;
+      statsText.textContent = `Total people craving IRL cookies: ${totalCount}`;
 
       step3Box.classList.remove("hidden");
       step3Box.classList.add("bounce-in");
