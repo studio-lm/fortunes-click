@@ -46,6 +46,25 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
         return;
     }
 
+    // Check cookie counter from localStorage
+    let cookieCount = parseInt(localStorage.getItem("cookieCount") || "0");
+
+    // Maximal 12 Cookies
+    if (cookieCount >= 12) {
+        const popup = document.getElementById("popup-step-2");
+        popup.classList.add("fall-out");
+        setTimeout(() => {
+            popup.classList.add("hidden");
+            const step3Box = document.getElementById("popup-step-3");
+            const confirmText = document.getElementById("cookie-confirm-text");
+            confirmText.textContent = "Sorry, all 12 cookies have already been sent.";
+            step3Box.classList.remove("hidden");
+            step3Box.classList.add("bounce-in");
+        }, 600);
+        return;
+    }
+
+    // Wenn noch Platz → absenden
     fetch(form.action, {
         method: 'POST',
         headers: {
@@ -54,11 +73,20 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
         body: new FormData(form)
     }).then(response => {
         if (response.ok) {
+            // Zähler erhöhen und speichern
+            cookieCount += 1;
+            localStorage.setItem("cookieCount", cookieCount);
+
             const popup = document.getElementById("popup-step-2");
             popup.classList.add("fall-out");
+
             setTimeout(() => {
                 popup.classList.add("hidden");
+
                 const step3Box = document.getElementById("popup-step-3");
+                const confirmText = document.getElementById("cookie-confirm-text");
+                confirmText.textContent = `Nice, your cookie is almost on the way. (${cookieCount}/12 Cookies sent)`;
+
                 step3Box.classList.remove("hidden");
                 step3Box.classList.add("bounce-in");
             }, 600);
@@ -69,4 +97,5 @@ document.getElementById("cookie-form").addEventListener("submit", function (e) {
         alert("Could not send the form. Please try again later.");
     });
 });
+
 
