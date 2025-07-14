@@ -1,10 +1,10 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const accepted = localStorage.getItem("cookiesAccepted");
-//   if (accepted === "true") {
-//     document.getElementById("cookie-popup").style.display = "none";
-//     document.body.style.overflow = "auto";
-//   }
-// });
+document.addEventListener("DOMContentLoaded", () => {
+   const accepted = localStorage.getItem("cookiesAccepted");
+   if (accepted === "true") {
+     document.getElementById("cookie-popup").style.display = "none";
+     document.body.style.overflow = "auto";
+   }
+ });
 
 const SUPABASE_URL = "https://fzyfrkugailgwkndxlym.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6eWZya3VnYWlsZ3drbmR4bHltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjUxMTQsImV4cCI6MjA2NzgwMTExNH0.suukaJ2nZLX6rH7qDd5uErr5uhLJZ08kLlWHzUs9pQ8";
